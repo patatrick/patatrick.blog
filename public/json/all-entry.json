@@ -1,0 +1,47 @@
+[
+	{
+		"id": 1,
+		"hashtags": [],
+		"slug": "2024-09-23/roof-party-normcore",
+		"date": "2024-09-23 00:00:00:000",
+		"title": "Roof party normcore before they sold out, cornhole vape",
+		"description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam deserunt vitae quis provident cum labore. Eligendi, adipisci. Ipsa ipsam quas saepe eveniet voluptate, repellat perspiciatis minus commodi ducimus quasi aut!",
+		"cover_image": "https://www.holapatrick.com/img/lenguajes-2.jpg",
+		"user": {
+			"id": 20,
+			"name": "Jese Leos",
+			"occupation": "Graphic Designer, educator & CEO",
+			"avatar": "https://flowbite.com/docs/images/people/profile-picture-2.jpg"
+		}
+	},
+	{
+		"id": 2,
+		"hashtags": [],
+		"slug": "2024-09-10/2roof-party-normcore",
+		"date": "2024-09-10 00:00:00:000",
+		"title": "2 Roof party normcore before they sold out, cornhole vape",
+		"description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam deserunt vitae quis provident cum labore. Eligendi, adipisci. Ipsa ipsam quas saepe eveniet voluptate, repellat perspiciatis minus commodi ducimus quasi aut!",
+		"cover_image": "https://www.holapatrick.com/img/lenguajes-2.jpg",
+		"user": {
+			"id": 21,
+			"name": "2 Jese Leos",
+			"occupation": "2 Graphic Designer, educator & CEO",
+			"avatar": "https://flowbite.com/docs/images/people/profile-picture-2.jpg"
+		}
+	},
+	{
+		"id": 3,
+		"hashtags": [],
+		"slug": "2024-09-22/2roof-party-normcore",
+		"date": "2024-09-22 00:00:00:000",
+		"title": "3 Roof party normcore before they sold out, cornhole vape",
+		"description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam deserunt vitae quis provident cum labore. Eligendi, adipisci. Ipsa ipsam quas saepe eveniet voluptate, repellat perspiciatis minus commodi ducimus quasi aut!",
+		"cover_image": "https://www.holapatrick.com/img/lenguajes-2.jpg",
+		"user": {
+			"id": 22,
+			"name": "3 Jese Leos",
+			"occupation": "3 Graphic Designer, educator & CEO",
+			"avatar": "https://flowbite.com/docs/images/people/profile-picture-2.jpg"
+		}
+	}
+]

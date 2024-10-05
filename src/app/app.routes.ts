@@ -11,4 +11,32 @@ export const routes: Routes = [
 		path:"entrada",
 		component: EntradaComponent
 	},
+	{
+		path:"programación-y-desarrollo",
+		component: EntradaComponent
+	},
+	{
+		path:"ciberseguridad",
+		component: EntradaComponent
+	},
+	{
+		path:"ai",
+		component: EntradaComponent
+	},
+	{
+		path:"diseño-ux-ui",
+		component: EntradaComponent
+	},
+	{
+		path:"entretenimiento",
+		component: EntradaComponent
+	},
+	{
+		path:"eventos",
+		component: EntradaComponent
+	},
+	{
+		path:"programación-para-todos",
+		component: EntradaComponent
+	},
 ];
