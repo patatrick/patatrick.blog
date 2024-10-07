@@ -1,13 +1,7 @@
-<!-- 
-Install the "flowbite-typography" NPM package to apply styles and format the article content: 
-
-URL: https://flowbite.com/docs/components/typography/ 
--->
-
-<section class="pt-8 pb-16 lg:pt-16 lg:pb-24 bg-white dark:bg-gray-900 antialiased">
+<!-- <section class="pt-8 pb-16 lg:pt-16 lg:pb-24 bg-white dark:bg-gray-900 antialiased">
     <div class="flex justify-between px-4 mx-auto max-w-screen-xl ">
         <article class="mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
-            <header class="mb-4 lg:mb-6 not-format">
+            <header class="mb-4 lg:mb-6 ">
                 <address class="flex items-center mb-6 not-italic">
                     <div class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
                         <img class="mr-4 w-16 h-16 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-2.jpg" alt="Jese Leos">
@@ -21,7 +15,7 @@ URL: https://flowbite.com/docs/components/typography/
                 <h1 class="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">Best practices for successful prototypes</h1>
             </header>
             <section class="body"></section>
-            <section class="not-format">
+            <section class="">
                 <div class="flex justify-between items-center mb-6">
                     <h2 class="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">Discussion (20)</h2>
                 </div>
@@ -55,7 +49,7 @@ URL: https://flowbite.com/docs/components/typography/
                               </svg>
                             <span class="sr-only">Comment settings</span>
                         </button>
-                        <!-- Dropdown menu -->
+                        
                         <div id="dropdownComment1"
                             class="hidden z-10 w-36 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
                             <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
@@ -106,7 +100,7 @@ URL: https://flowbite.com/docs/components/typography/
                               </svg>
                             <span class="sr-only">Comment settings</span>
                         </button>
-                        <!-- Dropdown menu -->
+                        
                         <div id="dropdownComment2"
                             class="hidden z-10 w-36 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
                             <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
@@ -155,7 +149,7 @@ URL: https://flowbite.com/docs/components/typography/
                               </svg>
                             <span class="sr-only">Comment settings</span>
                         </button>
-                        <!-- Dropdown menu -->
+                        
                         <div id="dropdownComment3"
                             class="hidden z-10 w-36 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
                             <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
@@ -203,7 +197,7 @@ URL: https://flowbite.com/docs/components/typography/
                                   <path d="M2 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm6.041 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM14 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z"/>
                               </svg>
                         </button>
-                        <!-- Dropdown menu -->
+                        
                         <div id="dropdownComment4"
                             class="hidden z-10 w-36 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
                             <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
@@ -461,4 +455,65 @@ URL: https://flowbite.com/docs/components/typography/
             </ul>
         </div>
     </div>
-  </footer>
+  </footer> -->
+  <div class="container">
+<article class="flex flex-col flex-wrap items-start bg-white rounded-md format lg:format-lg dark:format-invert max-w-max">
+	<img src="https://media.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fuytf27ug5ofzwsj77m6q.jpg" alt="" class="w-full rounded-t-md" />
+	<header class="pt-4 px-8 sm:px-10">
+		<h2 class="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">
+			¿Qué es JSON Web Token?
+		</h2>
+	</header>
+	<div class="px-8 sm:px-10">
+		<p>
+			JWT (JSON Web Token) es un estándar abierto (RFC 7519) que define una manera compacta y segura de transmitir 
+			información entre dos partes como un objeto JSON. Se utiliza principalmente para la autenticación y la autorización
+			en aplicaciones web, APIs, y microservicios.
+		</p>
+		<h3 class="my-4 text-2xl font-bold leading-tight text-gray-900 lg:mb-6 lg:text-3xl dark:text-white">
+			Estructura de JWT
+		</h3>
+		<p>Un token JWT consta de tres partes, separadas por puntos (.):</p>
+		<ol class="">
+			<li>Header (Encabezado):
+				<ul>
+					<li class="">Contiene el tipo de token, que es JWT, y el algoritmo de encriptación utilizado, como HS256 o RS256.
+						<!-- <pre class="">
+							<code class="">
+&lbrace;
+	"alg": "HS256",
+	"typ": "JWT"
+&rbrace;</code>
+						</pre> -->
+					</ul>
+			</li>
+			<li>Payload (Carga útil):
+				<ul>
+					<li class="">Contiene los claims (reclamaciones), que son las declaraciones sobre el usuario o datos adicionales.
+						Estos pueden ser registrados (como iss, exp, sub, aud), públicos, o personalizados según la aplicación.
+						<!-- <pre class="">
+							<code class="">
+&lbrace;
+	"sub": "1234567890",
+	"name": "John Doe",
+	"admin": true
+&rbrace;</code>
+						</pre> -->
+					</li>
+				</ul>
+			</li>
+			<li>Signature (Firma):
+				<ul>
+					<li class="">La firma asegura la integridad del token, y es generada combinando el header codificado en Base64,
+						el payload también codificado, una clave secreta (en caso de HMAC), y el algoritmo especificado.
+							<pre class="">
+								<code class="">
+HMACSHA256(base64UrlEncode(header) + "." + base64UrlEncode(payload), secret)</code>
+							</pre>
+					</li>
+				</ul>
+			</li>
+		</ol>
+	</div>
+</article>
+</div>
