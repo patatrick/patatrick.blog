@@ -1,4 +1,17 @@
 pre {
-    background: black;
-    color: white;
+	color: white;
+	background-color: black;
+	margin: 0;
+}
+h3 {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+ol {
+	li {
+		font-weight: 500;
+	}
+	ul li {
+		font-weight: 400;
+	}
 }
