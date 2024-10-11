@@ -7,17 +7,28 @@ export interface Menu
 }
 export interface Entried
 {
+	id: number;
+	title: string;
+	description: string;
+	cover_image: string | null;
+	slug: string;
+	content: string;
+	id_user: number;
+	joined: string | null;
+}
+export interface EntriedDTO extends Entried
+{
 	name: string;
 	user_description: string | null;
 	avatar: string;
 	occupation: string | null;
-	hashtag: string[] | number[];
+	hashtag: number[] | string[];
 }
 export interface Hashtag
 {
 	id: number;
 	name: string;
-    create_by: number;
+    create_by: string;
 }
 export interface Replies
 {

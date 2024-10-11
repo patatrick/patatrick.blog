@@ -1,0 +1,12 @@
+.article-container {
+    height: calc(100vh - 130px);
+    min-height: fit-content;
+	.cover-image {
+		height: 33vh;
+		object-fit: cover;
+		width: 100%;
+	}
+	header {
+		flex-grow: 1;
+	}
+}

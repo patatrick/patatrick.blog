@@ -1,5 +1,12 @@
 .cofee-cup {
-    position: relative;
-    left: -50px;
-    bottom: 65px;
+	padding-top: 20px;
+	svg {
+		width: 100%;
+		transform: none;
+		rotate: 180deg;
+		padding: 0 28px 0 0 !important;
+	}
+}
+header {
+	margin-top: -20px;
 }

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { Menu } from '../../core/interfaces/api.interface';
 import MenuService from '../../services/menu.service';
@@ -12,8 +12,9 @@ import { DomSanitizer } from '@angular/platform-browser';
 	templateUrl: './sidebar.component.html',
 	styleUrl: './sidebar.component.scss'
 })
-export class SidebarComponent
+export class SidebarComponent implements OnInit
 {
+	isLoggin = false;
 	menu: Menu[] = [];
 	constructor(
 		private readonly _menuService: MenuService,
