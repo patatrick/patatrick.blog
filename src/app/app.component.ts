@@ -1,32 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { initFlowbite } from 'flowbite';
-import { Menu } from './core/interfaces/api.interface';
-import MenuService from './services/menu.service';
 import { CommonModule } from '@angular/common';
-import { DomSanitizer } from '@angular/platform-browser';
+import { AsideComponent } from './components/aside/aside.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { NavComponent } from './components/nav/nav.component';
 
 @Component({
 	selector: 'app-root',
 	standalone: true,
-	imports: [RouterOutlet, CommonModule, RouterModule],
+	imports: [RouterOutlet, CommonModule, RouterModule, AsideComponent, SidebarComponent, NavComponent],
 	templateUrl: './app.component.html',
 	styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit
 {
-	menu: Menu[] = [];
-	constructor(
-		private readonly _menuService: MenuService,
-		private readonly sanitizer: DomSanitizer
-	) {}
 	ngOnInit(): void
 	{
-		this._menuService.getAll.subscribe(data=> this.menu = data);
 		initFlowbite();
-	}
-	sanitizarHTML(htmlString: string)
-	{
-		return this.sanitizer.bypassSecurityTrustHtml(htmlString);
 	}
 }
