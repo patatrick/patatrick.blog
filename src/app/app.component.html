@@ -1,5 +1,5 @@
 <app-nav></app-nav>
-<app-sidebar></app-sidebar>
+<app-sidebar (menuEmit)="saveMenu($event)"></app-sidebar>
 <main class="w-auto p-4 sm:ml-64 mt-16 sm:mt-14 bg-gray-100 container flex flex-wrap">
 	<section class="container lg:w-3/4">
 		<router-outlet></router-outlet>

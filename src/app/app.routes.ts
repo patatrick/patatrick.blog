@@ -8,11 +8,11 @@ export const routes: Routes = [
 		component: HomeComponent
 	},
 	{
-		path:"entrada",
+		path:"programación-y-desarrollo",
 		component: EntradaComponent
 	},
 	{
-		path:"programación-y-desarrollo",
+		path:"programación-y-desarrollo/:slug",
 		component: EntradaComponent
 	},
 	{
@@ -20,7 +20,15 @@ export const routes: Routes = [
 		component: EntradaComponent
 	},
 	{
+		path:"ciberseguridad/:slug",
+		component: EntradaComponent
+	},
+	{
 		path:"ai",
+		component: EntradaComponent
+	},
+	{
+		path:"ai/:slug",
 		component: EntradaComponent
 	},
 	{
@@ -28,7 +36,15 @@ export const routes: Routes = [
 		component: EntradaComponent
 	},
 	{
+		path:"diseño-ux-ui/:slug",
+		component: EntradaComponent
+	},
+	{
 		path:"entretenimiento",
+		component: EntradaComponent
+	},
+	{
+		path:"entretenimiento/:slug",
 		component: EntradaComponent
 	},
 	{
@@ -36,7 +52,15 @@ export const routes: Routes = [
 		component: EntradaComponent
 	},
 	{
+		path:"eventos/:slug",
+		component: EntradaComponent
+	},
+	{
 		path:"programación-para-todos",
+		component: EntradaComponent
+	},
+	{
+		path:"programación-para-todos/:slug",
 		component: EntradaComponent
 	},
 ];

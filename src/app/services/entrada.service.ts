@@ -9,12 +9,21 @@ import { EntriedDTO } from "../core/interfaces/api.interface";
 })
 export default class EntradaService extends ApiService
 {
+	private readonly uri: string = this.api + "/entried";
 	private readonly _http = inject(HttpClient);
 	private readonly options = { headers: new HttpHeaders({'Content-Type': 'application/json'}) };
 
 	public get getAll() : Observable<EntriedDTO[]>
 	{
-		return this._http.get<JsonResponse>(this.api + "/entried", this.options).pipe(
+		return this._http.get<JsonResponse>(this.uri, this.options).pipe(
+			map((item)=> item.data),
+			catchError((e)=> this.fail(e))
+		);
+	}
+
+	public getOne(slug: string) : Observable<EntriedDTO>
+	{
+		return this._http.get<JsonResponse>(this.uri + "/slug/"+ slug, this.options).pipe(
 			map((item)=> item.data),
 			catchError((e)=> this.fail(e))
 		);

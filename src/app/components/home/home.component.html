@@ -25,7 +25,7 @@
 				<p class="leading-relaxed mb-2">{{ entried.description }}</p>
 			</header>
 			<footer class="flex items-center flex-wrap justify-between p-6 mb-4 border-t-2 border-gray-100 mt-auto w-full">
-				<a [routerLink]="entried.slug" class="text-indigo-500 inline-flex items-center">Leer más
+				<a (click)="irEntrada(entried.slug, $event)" href="" class="text-indigo-500 inline-flex items-center">Leer más
 					<svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"
 						stroke-linecap="round" stroke-linejoin="round">
 						<path d="M5 12h14"></path>

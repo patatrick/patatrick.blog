@@ -8,6 +8,7 @@ export interface Menu
 export interface Entried
 {
 	id: number;
+	id_menu: number;
 	title: string;
 	description: string;
 	cover_image: string | null;

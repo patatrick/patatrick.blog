@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { Menu } from '../../core/interfaces/api.interface';
 import MenuService from '../../services/menu.service';
@@ -14,6 +14,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class SidebarComponent implements OnInit
 {
+	@Output() menuEmit: EventEmitter<Menu[]> = new EventEmitter();
 	isLoggin = false;
 	menu: Menu[] = [];
 	constructor(
@@ -22,7 +23,10 @@ export class SidebarComponent implements OnInit
 	) {}
 	ngOnInit(): void
 	{
-		this._menuService.getAll.subscribe(data=> this.menu = data);
+		this._menuService.getAll.subscribe(data=>{
+			this.menu = data;
+			this.menuEmit.emit(this.menu);
+		})
 	}
 	sanitizarHTML(htmlString: string)
 	{
