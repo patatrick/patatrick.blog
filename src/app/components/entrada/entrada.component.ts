@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import EntradaService from '../../services/entrada.service';
-import { Entried, EntriedDTO, Hashtag } from '../../core/interfaces/api.interface';
+import { Entried, EntriedDTO, Hashtag, Menu } from '../../core/interfaces/api.interface';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { DomSanitizer } from '@angular/platform-browser';
+import HashtagService from '../../services/hashtag.service';
+import { forkJoin } from 'rxjs';
 
 @Component({
 	selector: 'app-entrada',
@@ -17,35 +19,53 @@ export class EntradaComponent implements OnInit
 	entrada?: EntriedDTO;
 	entradasMismoTipo: EntriedDTO[] = [];
 	arrHastag: Hashtag[] = [];
+	slug:  string | null = null;
+
 	constructor(
 		private readonly _entradaService: EntradaService,
+		private readonly _hashtagService: HashtagService,
 		private readonly _route: ActivatedRoute,
 		private readonly _router: Router,
 		private readonly _sanitizer: DomSanitizer,
 	){}
 	ngOnInit(): void
 	{
-		const slug = this._route.snapshot.paramMap.get('slug');
-		console.log(this._router.getCurrentNavigation());
-		
-		const data = this._router.getCurrentNavigation()!.extras.state! as { entradas: EntriedDTO[], hashgtag: Hashtag[] };
-		this.entradasMismoTipo = data.entradas;
-		this.arrHastag = data.hashgtag;
-		console.log(this.entradasMismoTipo);
-		if (!slug) {
-
-			// this._entradaService.getOne(slug).subscribe(data=> this.entrada = data);
-			return;
-		}
-		this._entradaService.getOne(slug).subscribe(data=> this.entrada = data);
-	}
-	getNombreHashtag(id_hashtag: number) : string
-	{
-		return id_hashtag + ", ";
-		// return this.hashgtag.find(item=>item.id == id_hashtag)!.name;
+		const pathPrincipal = this._route.snapshot.url[0].path;
+		const menu = this.getMenu.find(m=>m.slug == "/"+pathPrincipal)!;
+		forkJoin([this._entradaService.getAllMismoTipo(menu.id), this._hashtagService.getAll]).subscribe(
+			data=> {
+				this.entradasMismoTipo = data[0];
+				this.arrHastag = data[1];
+			}
+		);
+		this.slug = this._route.snapshot.paramMap.get('slug');
+		this.slug ? this.entradaOne(menu) : this.entradaAll(menu);
 	}
 	sanitizarHTML(htmlString: string)
 	{
 		return this._sanitizer.bypassSecurityTrustHtml(htmlString);
+	}
+	getNombreHashtag(id_hashtag: number) : string
+	{
+		return this.arrHastag.find(item=>item.id == id_hashtag)!.name;
+	}
+	irEntrada(slug: string, event: Event) : void
+	{
+		event.preventDefault();
+		const id_menu = this.entradasMismoTipo.find(item=>item.slug == slug)!.id_menu;
+		const menuActual = this.getMenu.find(m=>m.id == id_menu)!;
+		this._router.navigate([`${ menuActual.slug }/${ slug }`]);
+	}
+	private entradaOne(menu: Menu) : void
+	{
+		this._entradaService.getOne(this.slug!).subscribe(data=> this.entrada = data);
+	}
+	private entradaAll(menu: Menu) : void
+	{
+
+	}
+	private get getMenu() : Menu[]
+	{
+		return JSON.parse(localStorage.getItem("menu")!) as Menu[];
 	}
 }

@@ -20,7 +20,13 @@ export default class EntradaService extends ApiService
 			catchError((e)=> this.fail(e))
 		);
 	}
-
+	public getAllMismoTipo(idMenu: number) : Observable<EntriedDTO[]>
+	{
+		return this._http.get<JsonResponse>(this.uri + "/menu/"+idMenu, this.options).pipe(
+			map((item)=> item.data),
+			catchError((e)=> this.fail(e))
+		);
+	}
 	public getOne(slug: string) : Observable<EntriedDTO>
 	{
 		return this._http.get<JsonResponse>(this.uri + "/slug/"+ slug, this.options).pipe(

@@ -5,7 +5,6 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import HashtagService from '../../services/hashtag.service';
 import { forkJoin } from 'rxjs';
-import { state } from '@angular/animations';
 
 @Component({
 	selector: 'app-home',
@@ -34,7 +33,6 @@ export class HomeComponent implements OnInit
 	}
 	getNombreHashtag(id_hashtag: number) : string
 	{
-
 		return this.hashgtag.find(item=>item.id == id_hashtag)!.name;
 	}
 	irEntrada(slug: string, event: Event) : void
@@ -42,11 +40,7 @@ export class HomeComponent implements OnInit
 		event.preventDefault();
 		const id_menu = this.entradas.find(item=>item.slug == slug)!.id_menu;
 		const menuActual = this.getMenu.find(m=>m.id == id_menu)!;
-		const state = {
-			entradas: this.entradas.filter(e=>e.id_menu == id_menu),
-			hashgtag: this.hashgtag,
-		}
-		this._router.navigate([`${ menuActual.slug }/${ slug }`], { state: state });
+		this._router.navigate([`${ menuActual.slug }/${ slug }`]);
 	}
 	get getMenu() : Menu[]
 	{
