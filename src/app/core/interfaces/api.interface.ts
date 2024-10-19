@@ -42,13 +42,13 @@ export interface Replies
 export interface User
 {
 	id: number;
-	named: string;
+	name: string;
 	description: string | null;
 	occupation: string | null;
-	avatard: string;
-	emaild: string;
-	auth0_subd: string;
-	typed: string;
+	avatar: string;
+	email: string;
+	auth0_sub: string;
+	type: string;
 	joined: string;
 }
 export interface UserReplies

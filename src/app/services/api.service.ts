@@ -29,7 +29,7 @@ export abstract class ApiService extends Session
 		this.headers = { 
 			headers: new HttpHeaders({
 				'Content-Type': 'application/json',
-				'Authorization': 'Bearer ' + this.tokenValue
+				'Authorization': 'Bearer ' + this.getTokenValue
 			})
 		};
 	}

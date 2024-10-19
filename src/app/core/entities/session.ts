@@ -1,8 +1,12 @@
 export default class Session
 {
-	protected tokenValue;
-	constructor() {
-		this.tokenValue = "";
+	protected set setTokenValue(jwt: string)
+	{
+		localStorage.setItem("token", jwt);
+	}
+	protected get getTokenValue()
+	{
+		return localStorage.getItem("token");
 	}
 	public cerrarSession()
 	{
