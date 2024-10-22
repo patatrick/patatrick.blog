@@ -17,19 +17,18 @@ export interface JsonResponse {
 // 		document.querySelector("#loader")!.classList.remove("active");
 // 	}
 // }
-export abstract class ApiService extends Session
+export abstract class ApiService
 {
 	protected readonly api: string;
 	private readonly env = inject(_env);
 	private readonly headers: { headers: HttpHeaders; };
 	constructor()
 	{
-		super();
 		this.api = this.env.api;
 		this.headers = { 
 			headers: new HttpHeaders({
 				'Content-Type': 'application/json',
-				'Authorization': 'Bearer ' + this.getTokenValue
+				'Authorization': 'Bearer ' + Session.getTokenValue
 			})
 		};
 	}

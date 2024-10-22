@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import HashtagService from '../../services/hashtag.service';
 import { forkJoin } from 'rxjs';
+import Session from '../../core/entities/session';
 
 @Component({
 	selector: 'app-home',
@@ -39,11 +40,7 @@ export class HomeComponent implements OnInit
 	{
 		event.preventDefault();
 		const id_menu = this.entradas.find(item=>item.slug == slug)!.id_menu;
-		const menuActual = this.getMenu.find(m=>m.id == id_menu)!;
+		const menuActual = Session.getMenu.find(m=>m.id == id_menu)!;
 		this._router.navigate([`${ menuActual.slug }/${ slug }`]);
-	}
-	get getMenu() : Menu[]
-	{
-		return JSON.parse(localStorage.getItem("menu")!) as Menu[];
 	}
 }

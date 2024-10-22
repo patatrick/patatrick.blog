@@ -3,6 +3,8 @@ import { AfterViewInit, Component, inject, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { _env } from '../../app.constants';
 import { LoginComponent } from '../login/login.component';
+import Session from '../../core/entities/session';
+import LoginService from '../../services/login.service';
 
 @Component({
 	selector: 'app-nav',
@@ -15,27 +17,25 @@ export class NavComponent implements OnInit
 {
 	isLoggin : boolean = false;
 	loginAuth0 : string = "";
-	rutaLogin : string = "";
-
-	constructor()
+	user = Session.getUserSession;
+	constructor(
+		private readonly _login: LoginService,
+	) {}
+	ngOnInit(): void 
 	{
-		this.rutaLogin = inject(_env).api + "/login";
-		if (localStorage.getItem("token")) {
+		if (Session.getTokenValue) {
 			this.isLoggin = true;
 		}
 		else {
 			this.isLoggin = false;
 		}
 	}
-	ngOnInit(): void 
+	initSession() : void
 	{
-		// setTimeout(() => {
-		// 	if (localStorage.getItem("token")) {
-		// 		this.isLoggin = true;
-		// 	}
-		// 	else {
-		// 		this.isLoggin = false;
-		// 	}
-		// }, 1000);
+		this._login.start();
+	}
+	exitSession() : void
+	{
+		this._login.exit();
 	}
 }

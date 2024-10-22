@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { Menu } from '../../core/interfaces/api.interface';
 import MenuService from '../../services/menu.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import Session from '../../core/entities/session';
 
 @Component({
 	selector: 'app-sidebar',
@@ -23,10 +24,16 @@ export class SidebarComponent implements OnInit
 	) {}
 	ngOnInit(): void
 	{
-		this._menuService.getAll.subscribe(data=>{
-			this.menu = data;
+		if (Session.getMenu.length == 0) {
+			this._menuService.getAll.subscribe(data=>{
+				this.menu = data;
+				this.menuEmit.emit(this.menu);
+			});
+		}
+		else {
+			this.menu = Session.getMenu;
 			this.menuEmit.emit(this.menu);
-		})
+		}
 	}
 	sanitizarHTML(htmlString: string)
 	{

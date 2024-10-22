@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { DomSanitizer } from '@angular/platform-browser';
 import HashtagService from '../../services/hashtag.service';
 import { forkJoin } from 'rxjs';
+import Session from '../../core/entities/session';
 
 @Component({
 	selector: 'app-entrada',
@@ -31,7 +32,7 @@ export class EntradaComponent implements OnInit
 	ngOnInit(): void
 	{
 		const pathPrincipal = this._route.snapshot.url[0].path;
-		const menu = this.getMenu.find(m=>m.slug == "/"+pathPrincipal)!;
+		const menu = Session.getMenu.find(m=>m.slug == "/"+pathPrincipal)!;
 		forkJoin([this._entradaService.getAllMismoTipo(menu.id), this._hashtagService.getAll]).subscribe(
 			data=> {
 				this.entradasMismoTipo = data[0];
@@ -53,7 +54,7 @@ export class EntradaComponent implements OnInit
 	{
 		event.preventDefault();
 		const id_menu = this.entradasMismoTipo.find(item=>item.slug == slug)!.id_menu;
-		const menuActual = this.getMenu.find(m=>m.id == id_menu)!;
+		const menuActual = Session.getMenu.find(m=>m.id == id_menu)!;
 		this._router.navigate([`${ menuActual.slug }/${ slug }`]);
 	}
 	private entradaOne(menu: Menu) : void
@@ -63,9 +64,5 @@ export class EntradaComponent implements OnInit
 	private entradaAll(menu: Menu) : void
 	{
 
-	}
-	private get getMenu() : Menu[]
-	{
-		return JSON.parse(localStorage.getItem("menu")!) as Menu[];
 	}
 }
